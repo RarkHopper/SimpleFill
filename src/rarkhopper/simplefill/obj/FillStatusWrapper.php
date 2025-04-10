@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\obj;
+namespace rarkhopper\simplefill\obj;
 
 use pocketmine\player\Player;
 

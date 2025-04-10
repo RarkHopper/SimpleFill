@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\effect;
+namespace rarkhopper\simplefill\effect;
 
 use pocketmine\network\mcpe\protocol\TextPacket;
 use pocketmine\player\Player;

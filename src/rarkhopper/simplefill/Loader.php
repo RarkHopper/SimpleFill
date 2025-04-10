@@ -2,21 +2,22 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill;
+namespace rarkhopper\simplefill;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\TaskScheduler;
-use rark\simple_fill\command\SimpleFillCommand;
-use rark\simple_fill\command\SimpleUndoCommand;
-use rark\simple_fill\effect\Errors;
-use rark\simple_fill\handler\EventListener;
-use rark\simple_fill\item\AirFill;
-use rark\simple_fill\item\SwitchMode;
-use rark\simple_fill\libs\cortexpe\commando\PacketHooker;
-use rark\simple_fill\obj\Container;
-use rark\simple_fill\obj\Logger;
-use rark\simple_fill\task\BlockPlaceTask;
-use rark\simple_fill\task\RunningTasks;
+use rarkhopper\simplefill\command\SimpleFillCommand;
+use rarkhopper\simplefill\command\SimpleUndoCommand;
+use rarkhopper\simplefill\effect\Errors;
+use rarkhopper\simplefill\handler\BlockBreakHandler;
+use rarkhopper\simplefill\handler\BlockPlaceHandler;
+use rarkhopper\simplefill\handler\ItemUseHandler;
+use rarkhopper\simplefill\item\AirFill;
+use rarkhopper\simplefill\item\SwitchMode;
+use rarkhopper\simplefill\obj\Container;
+use rarkhopper\simplefill\obj\Logger;
+use rarkhopper\simplefill\task\BlockPlaceTask;
+use rarkhopper\simplefill\task\RunningTasks;
 
 class Loader extends PluginBase {
     const CONF_NAME = 'config.yml';
@@ -27,25 +28,23 @@ class Loader extends PluginBase {
     protected static TaskScheduler $task_scheduler;
 
     protected function onEnable() : void {
-        if (!PacketHooker::isRegistered()) {
-            PacketHooker::register($this);
-        }
         self::$task_scheduler = $this->getScheduler();
         $this->initItems();
         $this->applyConfData();
-        EventListener::init();
-        $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new BlockBreakHandler(), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new BlockPlaceHandler(), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new ItemUseHandler(), $this);
         $this->getServer()->getCommandMap()->registerAll(
             $this->getName(),
             [
-                new SimpleFillCommand($this),
-                new SimpleUndoCommand($this)
+                new SimpleFillCommand(),
+                new SimpleUndoCommand()
             ]
         );
     }
 
     protected function onDisable() : void {
-        RunningTasks::allStop();//todo rollback
+        RunningTasks::allStop(); //todo rollback
     }
 
     public static function getTaskScheduler() : TaskScheduler {

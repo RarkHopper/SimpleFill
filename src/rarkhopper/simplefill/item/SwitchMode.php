@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\item;
+namespace rarkhopper\simplefill\item;
 
 use pocketmine\block\Block;
 use pocketmine\item\Bow;
@@ -12,10 +12,10 @@ use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
-use rark\simple_fill\effect\Messages;
-use rark\simple_fill\effect\Sounds;
-use rark\simple_fill\obj\ContainerPool;
-use rark\simple_fill\obj\FillStatusWrapper;
+use rarkhopper\simplefill\effect\Messages;
+use rarkhopper\simplefill\effect\Sounds;
+use rarkhopper\simplefill\obj\ContainerPool;
+use rarkhopper\simplefill\obj\FillStatusWrapper;
 
 class SwitchMode implements SFTool {
     const BASE_NAME = 'Switch Mode' . TextFormat::RESET;

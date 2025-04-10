@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\effect;
+namespace rarkhopper\simplefill\effect;
 
-use rark\simple_fill\Loader;
+use rarkhopper\simplefill\Loader;
 
 abstract class Errors {
     final private function __construct() {/** NOOP */

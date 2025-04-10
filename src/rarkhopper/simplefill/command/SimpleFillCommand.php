@@ -7,21 +7,23 @@ namespace rarkhopper\simplefill\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
-use rark\simple_fill\effect\Messages;
-use rark\simple_fill\item\AirFill;
-use rark\simple_fill\item\SwitchMode;
+use rarkhopper\simplefill\effect\Messages;
+use rarkhopper\simplefill\item\AirFill;
+use rarkhopper\simplefill\item\SwitchMode;
 use function count;
 
 final class SimpleFillCommand extends Command {
-    protected const PERMISSION = 'simple_fill.command.op';
-    protected const COMMAND_NAME = 'simple_fill <on|off>';
-    protected const DESCRIPTION = 'Simple Fill';
-    protected const ALIAS = 'sf';
+    public const PERMISSION = 'simple_fill.command.op';
+    public const COMMAND_NAME = 'simple_fill';
+    public const DESCRIPTION = 'SimpleFillを利用するためのアイテムを付与します。引数にon/offを指定することで、SimpleFillのON/OFFを切り替えます。';
+    public const USAGE = '/sf <on|off>';
+    public const ALIAS = 'sf';
 
     public function __construct() {
         parent::__construct(
             self::COMMAND_NAME,
             self::DESCRIPTION,
+            self::USAGE,
             [self::ALIAS]
         );
         $this->setPermission(self::PERMISSION);

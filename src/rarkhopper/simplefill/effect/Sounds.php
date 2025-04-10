@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\effect;
+namespace rarkhopper\simplefill\effect;
 
 use pocketmine\block\Block;
 use pocketmine\block\VanillaBlocks;

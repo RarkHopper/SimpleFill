@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\obj;
+namespace rarkhopper\simplefill\obj;
 
 use pocketmine\player\Player;
-use rark\simple_fill\effect\Errors;
-use rark\simple_fill\effect\Messages;
+use rarkhopper\simplefill\effect\Errors;
+use rarkhopper\simplefill\effect\Messages;
 use function array_pop;
 use function array_shift;
 use function count;
@@ -30,7 +30,11 @@ abstract class Logger {
      * @return Container[]
      */
     public static function getAllLog(Player $player) : array {
-        return isset(self::$log[$player->getName()])? self::$log[$player->getName()]: [];
+        return isset(self::$log[$player->getName()]) ? self::$log[$player->getName()] : [];
+    }
+
+    public static function clearLog(Player $player) : void {
+        unset(self::$log[$player->getName()]);
     }
 
     protected static function setLog(Player $player, array $log) : void {

@@ -2,18 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\handler;
+namespace rarkhopper\simplefill\handler;
 
-use pocketmine\event\Event;
+use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerItemUseEvent;
-use rark\simple_fill\item\SwitchMode;
+use rarkhopper\simplefill\item\SwitchMode;
 
-class ItemUseHandler implements BaseHandler {
-    public static function getTarget() : string {
-        return PlayerItemUseEvent::class;
-    }
-
-    public static function handleEvent(Event $ev) : void {
+final class ItemUseHandler implements Listener {
+    public static function handleEvent(PlayerItemUseEvent $ev) : void {
         if (!$ev instanceof PlayerItemUseEvent) {
             return;
         }

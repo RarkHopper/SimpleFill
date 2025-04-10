@@ -7,23 +7,25 @@ namespace rarkhopper\simplefill\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
-use rark\simple_fill\effect\Messages;
-use rark\simple_fill\obj\Logger;
+use rarkhopper\simplefill\effect\Messages;
+use rarkhopper\simplefill\obj\Logger;
 use function count;
 use function filter_var;
 use const FILTER_VALIDATE_INT;
 
 final class SimpleUndoCommand extends Command {
-    protected const PERMISSION = 'simple_fill.command.op';
-    protected const COMMAND_NAME = 'simpleundo';
-    protected const DESCRIPTION = 'Simple Undo';
-    protected const ALIAS = 'su';
+    public const PERMISSION = 'simple_fill.command.op';
+    public const COMMAND_NAME = 'simpleundo';
+    public const DESCRIPTION = 'SimpleFillのUndoを行います。引数にUndoする回数を指定することで、Undoの回数を指定できます。';
+    public const USAGE = '/su <undo_count>';
+    public const ALIAS = 'su';
 
     public function __construct() {
         parent::__construct(
             self::COMMAND_NAME,
             self::DESCRIPTION,
-            [self::ALIAS]
+            self::USAGE,
+            [self::ALIAS],
         );
         $this->setPermission(self::PERMISSION);
     }

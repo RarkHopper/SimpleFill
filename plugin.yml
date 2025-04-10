@@ -1,7 +1,7 @@
 name : SimpleFill
 version : 3.0.0
 api : 5.0.0
-main : rark\simple_fill\Loader
+main : rarkhopper\simplefill\Loader
 author : RarkHopper
 permissions:
   simple_fill.command.op:

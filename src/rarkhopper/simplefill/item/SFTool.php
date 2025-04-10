@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\item;
+namespace rarkhopper\simplefill\item;
 
 use pocketmine\block\Block;
 use pocketmine\item\Item;

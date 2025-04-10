@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\utils;
+namespace rarkhopper\simplefill\utils;
 
 use ErrorException;
 use pocketmine\math\AxisAlignedBB;
@@ -10,7 +10,7 @@ use pocketmine\math\Vector2;
 use pocketmine\math\Vector3;
 use pocketmine\Server;
 use pocketmine\world\Position;
-use rark\simple_fill\effect\Errors;
+use rarkhopper\simplefill\effect\Errors;
 use function explode;
 use function max;
 use function min;

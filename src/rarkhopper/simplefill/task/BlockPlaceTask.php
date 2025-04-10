@@ -2,17 +2,17 @@
 
 declare(strict_types = 1);
 
-namespace rark\simple_fill\task;
+namespace rarkhopper\simplefill\task;
 
 use pocketmine\block\Block;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\player\Player;
 use pocketmine\scheduler\Task;
-use rark\simple_fill\effect\Errors;
-use rark\simple_fill\effect\Messages;
-use rark\simple_fill\effect\Sounds;
-use rark\simple_fill\obj\Container;
-use rark\simple_fill\obj\Logger;
+use rarkhopper\simplefill\effect\Errors;
+use rarkhopper\simplefill\effect\Messages;
+use rarkhopper\simplefill\effect\Sounds;
+use rarkhopper\simplefill\obj\Container;
+use rarkhopper\simplefill\obj\Logger;
 use function array_key_first;
 use function array_shift;
 use function count;
