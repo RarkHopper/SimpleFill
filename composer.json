@@ -1,11 +1,16 @@
 {
-    "name": "rark/simple-fill",
-    "description": "",
-    "license": "mozilla",
-    "require": {
-        "php": "8.*",
-        "php-64bit": "*",
-        "pocketmine/pocketmine-mp": "^4.0.0",
-        "phpstan/phpstan": "*"
+  "name": "rarkhopper/simplefill",
+  "version": "3.0.0",
+  "type": "project",
+  "require": {},
+  "require-dev": {
+    "pocketmine/pocketmine-mp": "^5.0.0",
+    "phpstan/phpstan": "^1.10",
+    "friendsofphp/php-cs-fixer": "^3.34"
+  },
+  "autoload": {
+    "psr-4": {
+      "rarkhopper\\simplefill\\": "src/rarkhopper/simplefill"
     }
+  }
 }
